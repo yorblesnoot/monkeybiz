@@ -11,6 +11,7 @@ public class Grapple : MonoBehaviour
 
     HandAnimator handAnimator;
     string handButton;
+    bool isAxisDown = false;
 
     private Vector3 pullDirection;
     private void Awake()
@@ -31,13 +32,13 @@ public class Grapple : MonoBehaviour
     void LateUpdate()
     {
         Ray ray = Camera.main.ScreenPointToRay(Cursor.transform.position);
-        if (Input.GetAxis(handButton) == 0 && Physics.Raycast(ray, out RaycastHit cursorHit, 100))
+        if (Input.GetAxisRaw(handButton) == 0 && Physics.Raycast(ray, out RaycastHit cursorHit, 100))
         {
             Reticle.transform.position = cursorHit.point;
             Reticle.transform.SetParent(cursorHit.collider.transform, true);
         }
 
-        if (Input.GetAxis(handButton) > 0)
+        if (Input.GetAxisRaw(handButton) != 0)
         {
             playerBody.isKinematic = false;
 
@@ -48,11 +49,20 @@ public class Grapple : MonoBehaviour
 
             playerBody.AddForce(pullDirection * power, ForceMode.Impulse);
             handAnimator.AnimateHandTowardsPosition(pullPoint, true);
+
+            // audio
+            if(!isAxisDown)
+            {
+                gameObject.GetComponent<AudioSource>().Play();
+                isAxisDown = true;
+            }
         }
         else
         {
             handAnimator.ResetHandTarget();
             line.positionCount = 0;
+
+            isAxisDown = false;
         }
     }
 }
