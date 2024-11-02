@@ -6160,6 +6160,8 @@ MonoBehaviour:
   levelNumber: 0
   levelBuffer: 5
   levelSize: 30
+  dissolveField: _DissolveLevel
+  dissolveDuration: 0.5
 --- !u!114 &915055832
 MonoBehaviour:
   m_ObjectHideFlags: 0
