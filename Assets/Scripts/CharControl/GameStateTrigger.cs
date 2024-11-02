@@ -16,14 +16,15 @@ public class GameStateTrigger : MonoBehaviour
     private void Awake()
     {
         startPosition = transform.position;
-        startPosition.z = 0;
         baseTravel = startPosition.z;
+        startPosition.z = 0;
+        
     }
 
     private void Update()
     {
         Vector3 currentPosition = transform.position;
-        float distanceTraveled = currentPosition.z + baseTravel;
+        float distanceTraveled = currentPosition.z - baseTravel;
         distanceCounter.text = Mathf.RoundToInt(distanceTraveled) + " Lightyears Traveled";
         if(Mathf.Abs(startPosition.x - currentPosition.x) > killWidth 
             || Mathf.Abs(startPosition.y - currentPosition.y) > killHeight)
