@@ -6,17 +6,29 @@ public class SectionTrigger : MonoBehaviour
 {
     [SerializeField] List<GameObject> levels;
     public int levelNumber = 0;
+    [SerializeField] int levelBuffer = 3;
+    [SerializeField] int levelSize = 30;
 
-	private void OnTriggerEnter(Collider other)
+    private void Awake()
+    {
+        for (int i = 0; i < levelBuffer; i++)
+        {
+            InstantiateBiome();
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
 	{
-        
-        //print($"levelSelector is: {levelSelector}");
-
         if (other.gameObject.CompareTag("New Section Trigger"))
         {
-            int levelSelector = UnityEngine.Random.Range(0, levels.Count);
-            Instantiate(levels[levelSelector], new Vector3(-15, 0, (levelNumber * 30 + 15)), Quaternion.identity);
-            levelNumber++;
+            InstantiateBiome();
         }
-	}
+    }
+
+    private void InstantiateBiome()
+    {
+        int levelSelector = UnityEngine.Random.Range(0, levels.Count);
+        Instantiate(levels[levelSelector], new Vector3(-15, 0, (levelNumber * levelSize)), Quaternion.identity);
+        levelNumber++;
+    }
 }
