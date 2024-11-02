@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cursor : MonoBehaviour
+public class cursorScript : MonoBehaviour
 {
     [SerializeField] int cursorSpeed = 2;
-    [SerializeField] int handNumber = 0;
+    public int handNumber = 0;
 
     // Start is called before the first frame update
     void Start()

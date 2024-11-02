@@ -374,8 +374,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 551924124}
   - {fileID: 660640056}
+  - {fileID: 551924124}
   - {fileID: 1535506008}
   - {fileID: 2139764033}
   m_Father: {fileID: 0}
@@ -5792,7 +5792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursorSpeed: 2
-  handNumber: 0
+  handNumber: 1
 --- !u!114 &551924126
 MonoBehaviour:
   m_ObjectHideFlags: 0
