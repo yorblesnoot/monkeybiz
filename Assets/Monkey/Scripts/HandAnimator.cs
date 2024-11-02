@@ -9,6 +9,11 @@ public class HandAnimator : MonoBehaviour
     Vector3 leftTarget;
     Vector3 rightTarget;
 
+    private void Awake()
+    {
+        leftTarget = leftIK.transform.position;
+        rightTarget = rightIK.transform.position;
+    }
     public void AnimateHandTowardsPosition(Vector3 targetPosition, bool right)
     {
         Vector3 offset = targetPosition - source.transform.position;

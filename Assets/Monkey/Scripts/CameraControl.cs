@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
-    [SerializeField] Transform character;
     float lockedX;
     float lockedY;
 
@@ -14,7 +13,7 @@ public class CameraControl : MonoBehaviour
         lockedY = transform.position.y;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         Vector3 cameraPosition = transform.position;
         cameraPosition.x = lockedX;
