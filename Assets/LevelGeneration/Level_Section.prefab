@@ -96,12 +96,12 @@ GameObject:
   - component: {fileID: 2391034472603072916}
   - component: {fileID: 7889902000814011764}
   m_Layer: 0
-  m_Name: Cube_5
+  m_Name: SectionEnd
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7089079798003466876
 Transform:
   m_ObjectHideFlags: 0
@@ -112,7 +112,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 17, y: 1, z: 14.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 20.85, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5991614447712135926}
@@ -530,12 +530,12 @@ GameObject:
   - component: {fileID: 899337863658686360}
   - component: {fileID: 7137614666589556963}
   m_Layer: 0
-  m_Name: Cube_4
+  m_Name: SectionStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &891124944367221235
 Transform:
   m_ObjectHideFlags: 0
@@ -546,7 +546,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 17, y: 1, z: -14.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 22.91, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5991614447712135926}
