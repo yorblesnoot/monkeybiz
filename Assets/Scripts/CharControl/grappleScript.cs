@@ -34,6 +34,7 @@ public class Grapple : MonoBehaviour
         if (Input.GetAxis(handButton) == 0 && Physics.Raycast(ray, out RaycastHit cursorHit, 100))
         {
             Reticle.transform.position = cursorHit.point;
+            Reticle.transform.SetParent(cursorHit.collider.transform, true);
         }
 
         if (Input.GetAxis(handButton) > 0)
