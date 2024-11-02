@@ -27,42 +27,12 @@ public class cursor : MonoBehaviour
     }
 
     void Player1()
-    {
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(-1 * cursorSpeed, 0, 0);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(1 * cursorSpeed, 0, 0);
-        }
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.Translate(0, -1 * cursorSpeed, 0);
-        }
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.Translate(0, 1 * cursorSpeed, 0);
-        }
+    { 
+        transform.Translate(Input.GetAxis("Horizontal") * cursorSpeed, Input.GetAxis("Vertical") * cursorSpeed, 0);
     }
 
     void Player2()
     {
-        if (Input.GetKey(KeyCode.J))
-        {
-            transform.Translate(-1 * cursorSpeed, 0, 0);
-        }
-        if (Input.GetKey(KeyCode.L))
-        {
-            transform.Translate(1 * cursorSpeed, 0, 0);
-        }
-        if (Input.GetKey(KeyCode.K))
-        {
-            transform.Translate(0, -1 * cursorSpeed, 0);
-        }
-        if (Input.GetKey(KeyCode.I))
-        {
-            transform.Translate(0, 1 * cursorSpeed, 0);
-        }
+        transform.Translate(Input.GetAxis("Horizontal2") * cursorSpeed, Input.GetAxis("Vertical2") * cursorSpeed, 0);
     }
 }
