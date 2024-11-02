@@ -1,48 +1,45 @@
 using UnityEngine;
 
-public class grapple : MonoBehaviour
+public class Grapple : MonoBehaviour
 {
-    [SerializeField] HandAnimator hands;
-    public GameObject Reticle;
-    public int power = 1;
+    [SerializeField] Rigidbody playerBody;
+    [SerializeField] LineRenderer line;
+    [SerializeField] int handNumber = 0;
+    [SerializeField] GameObject Reticle;
+    [SerializeField] int power = 1;
+    [SerializeField] Transform lineSource;
 
-    private Rigidbody PlayerBody;
-    private Vector3 hookPos;
-    private float hookLength;
-    public int pullTimer;
+    HandAnimator handAnimator;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private Vector3 pullDirection;
+    private void Awake()
     {
-        PlayerBody = this.GetComponent<Rigidbody>();
+        handAnimator = GetComponent<HandAnimator>();
+        
+        line.useWorldSpace = true;
     }
-
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit cursorHit;
-        if (Physics.Raycast(ray, out cursorHit, 100))
+        if (Input.GetMouseButtonDown(handNumber) && Physics.Raycast(ray, out RaycastHit cursorHit, 100))
         {
             Reticle.transform.position = cursorHit.point;
-
-            hookPos = (cursorHit.point - PlayerBody.transform.position).normalized;
-
-            Debug.Log(cursorHit.transform.name);
-            Debug.DrawLine(cursorHit.point, PlayerBody.transform.position, Color.blue);
         }
 
-        if (!Input.GetMouseButton(0) && pullTimer > 0)
+        if (Input.GetMouseButton(handNumber))
         {
-            pullTimer -= 1;
-        }
-        else if (Input.GetMouseButton(0) && pullTimer < 30)
-        {
-            hookLength = hookPos.magnitude;
-            pullTimer += 1;
-            PlayerBody.AddForce(hookPos * power, ForceMode.Impulse);
-            hands.AnimateHandTowardsPosition(cursorHit.point, true);
-        }
+            Vector3 pullPoint = Reticle.transform.position;
+            pullDirection = (pullPoint - playerBody.transform.position).normalized;
+            line.positionCount = 2;
+            line.SetPositions(new Vector3[] { lineSource.position, pullPoint });
 
+            playerBody.AddForce(pullDirection * power, ForceMode.Impulse);
+            handAnimator.AnimateHandTowardsPosition(pullPoint, true);
+        }
+        else
+        {
+            handAnimator.ResetHandTarget();
+            line.positionCount = 0;
+        }
     }
 }
