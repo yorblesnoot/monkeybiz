@@ -1,0 +1,27 @@
+using UnityEngine;
+
+public class HandAnimator : MonoBehaviour
+{
+    [SerializeField] float handDistance;
+    [SerializeField] Transform source;
+    [SerializeField] Transform leftIK;
+    [SerializeField] Transform rightIK;
+    Vector3 leftTarget;
+    Vector3 rightTarget;
+
+    public void AnimateHandTowardsPosition(Vector3 targetPosition, bool right)
+    {
+        Vector3 offset = targetPosition - source.transform.position;
+        offset = offset.normalized;
+        offset *= handDistance;
+        Vector3 finalPosition = source.position + offset;
+        if(right) rightTarget = finalPosition;
+        else leftTarget = finalPosition;
+    }
+
+    private void Update()
+    {
+        leftIK.transform.position = Vector3.Lerp(leftIK.transform.position, leftTarget, Time.deltaTime);
+        rightIK.transform.position = Vector3.Lerp(rightIK.transform.position, rightTarget, Time.deltaTime);
+    }
+}
