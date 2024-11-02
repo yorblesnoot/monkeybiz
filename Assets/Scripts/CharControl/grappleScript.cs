@@ -4,13 +4,13 @@ public class Grapple : MonoBehaviour
 {
     [SerializeField] Rigidbody playerBody;
     [SerializeField] LineRenderer line;
-    [SerializeField] KeyCode hand;
     [SerializeField] GameObject Reticle;
     [SerializeField] int power = 1;
     [SerializeField] Transform lineSource;
     [SerializeField] GameObject Cursor;
 
     HandAnimator handAnimator;
+    string handButton;
 
     private Vector3 pullDirection;
     private void Awake()
@@ -18,18 +18,28 @@ public class Grapple : MonoBehaviour
         handAnimator = GetComponent<HandAnimator>();
         
         line.useWorldSpace = true;
+
+        if (Cursor.GetComponent<cursorScript>().handNumber == 0)
+        {
+            handButton = "Fire";
+        }
+        else
+        {
+            handButton = "Fire2";
+        }
     }
     void LateUpdate()
     {
         Ray ray = Camera.main.ScreenPointToRay(Cursor.transform.position);
-        if (Input.GetKeyDown(hand) && Physics.Raycast(ray, out RaycastHit cursorHit, 100))
+        if (Input.GetAxis(handButton) == 0 && Physics.Raycast(ray, out RaycastHit cursorHit, 100))
         {
-            playerBody.isKinematic = false;
             Reticle.transform.position = cursorHit.point;
         }
 
-        if (Input.GetKey(hand))
+        if (Input.GetAxis(handButton) > 0)
         {
+            playerBody.isKinematic = false;
+
             Vector3 pullPoint = Reticle.transform.position;
             pullDirection = (pullPoint - playerBody.transform.position).normalized;
             line.positionCount = 2;
