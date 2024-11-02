@@ -4,7 +4,6 @@ public class Grapple : MonoBehaviour
 {
     [SerializeField] Rigidbody playerBody;
     [SerializeField] LineRenderer line;
-    [SerializeField] int hand = 0;
     [SerializeField] GameObject Reticle;
     [SerializeField] int power = 1;
     [SerializeField] Transform lineSource;
@@ -20,7 +19,7 @@ public class Grapple : MonoBehaviour
         
         line.useWorldSpace = true;
 
-        if (hand == 0)
+        if (Cursor.GetComponent<cursorScript>().handNumber == 0)
         {
             handButton = "Fire";
         }
@@ -32,14 +31,15 @@ public class Grapple : MonoBehaviour
     void LateUpdate()
     {
         Ray ray = Camera.main.ScreenPointToRay(Cursor.transform.position);
-        if (Input.GetAxis(handButton) != 0 && Physics.Raycast(ray, out RaycastHit cursorHit, 100))
+        if (Input.GetAxis(handButton) == 0 && Physics.Raycast(ray, out RaycastHit cursorHit, 100))
         {
-            playerBody.isKinematic = false;
             Reticle.transform.position = cursorHit.point;
         }
 
-        if (Input.GetAxis(handButton) != 0)
+        if (Input.GetAxis(handButton) > 0)
         {
+            playerBody.isKinematic = false;
+
             Vector3 pullPoint = Reticle.transform.position;
             pullDirection = (pullPoint - playerBody.transform.position).normalized;
             line.positionCount = 2;
