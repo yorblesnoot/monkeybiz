@@ -24,6 +24,7 @@ public class Grapple : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Cursor.transform.position);
         if (Input.GetKeyDown(hand) && Physics.Raycast(ray, out RaycastHit cursorHit, 100))
         {
+            playerBody.isKinematic = false;
             Reticle.transform.position = cursorHit.point;
         }
 
