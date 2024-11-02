@@ -5706,8 +5706,8 @@ GameObject:
   m_Component:
   - component: {fileID: 915055827}
   - component: {fileID: 915055826}
-  - component: {fileID: 915055831}
   - component: {fileID: 915055830}
+  - component: {fileID: 915055831}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5792,12 +5792,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 915055825}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe90b5960664f2f47b307a4358162b3d, type: 3}
+  m_Script: {fileID: 11500000, guid: 8fd1cb7306a1abd48b81f33a7337b566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelSection: {fileID: 5083440638291195833, guid: 560075ba82885894787d69161964a3c6,
+  levelSection: {fileID: 5083440638291195833, guid: 336c3ba2b1e969d48ad2552e2eca409c,
+    type: 3}
+  levelSection2: {fileID: 5083440638291195833, guid: a90a0d1b4418998478e4ef61fdec7694,
+    type: 3}
+  levelSection3: {fileID: 5083440638291195833, guid: 7b506e974aec45f49a701c71643e27eb,
     type: 3}
   levelNumber: 0
+  levelSelector: 1
+  levelGenerated: Nope
 --- !u!136 &127394246354096505
 CapsuleCollider:
   m_ObjectHideFlags: 0
