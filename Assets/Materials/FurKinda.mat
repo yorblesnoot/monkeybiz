@@ -42,7 +42,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _FurColor: {r: 0.20754716, g: 0.20010677, b: 0.20010677, a: 1}
+    - _FurColor: {r: 0.5849056, g: 0.29695505, b: 0.19754355, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &4730870714727644853
 MonoBehaviour:
