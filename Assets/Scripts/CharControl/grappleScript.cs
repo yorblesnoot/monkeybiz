@@ -4,10 +4,11 @@ public class Grapple : MonoBehaviour
 {
     [SerializeField] Rigidbody playerBody;
     [SerializeField] LineRenderer line;
-    [SerializeField] int handNumber = 0;
+    [SerializeField] KeyCode hand;
     [SerializeField] GameObject Reticle;
     [SerializeField] int power = 1;
     [SerializeField] Transform lineSource;
+    [SerializeField] GameObject Cursor;
 
     HandAnimator handAnimator;
 
@@ -20,13 +21,13 @@ public class Grapple : MonoBehaviour
     }
     void LateUpdate()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Input.GetMouseButtonDown(handNumber) && Physics.Raycast(ray, out RaycastHit cursorHit, 100))
+        Ray ray = Camera.main.ScreenPointToRay(Cursor.transform.position);
+        if (Input.GetKeyDown(hand) && Physics.Raycast(ray, out RaycastHit cursorHit, 100))
         {
             Reticle.transform.position = cursorHit.point;
         }
 
-        if (Input.GetMouseButton(handNumber))
+        if (Input.GetKey(hand))
         {
             Vector3 pullPoint = Reticle.transform.position;
             pullDirection = (pullPoint - playerBody.transform.position).normalized;
