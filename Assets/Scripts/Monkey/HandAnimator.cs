@@ -24,7 +24,7 @@ public class HandAnimator : MonoBehaviour
         else leftTarget = finalPosition;
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         leftIK.transform.position = Vector3.Lerp(leftIK.transform.position, leftTarget, Time.deltaTime);
         rightIK.transform.position = Vector3.Lerp(rightIK.transform.position, rightTarget, Time.deltaTime);
