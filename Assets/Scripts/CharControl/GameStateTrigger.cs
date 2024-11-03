@@ -7,19 +7,22 @@ using UnityEngine.SceneManagement;
 public class GameStateTrigger : MonoBehaviour
 {
     [SerializeField] float velocityPerMultiplier = 10;
-    [SerializeField] float killHeight = 20;
-    [SerializeField] float killWidth = 40;
     [SerializeField] float fadeDuration;
     [SerializeField] CanvasGroup gameOver;
     [SerializeField] TMP_Text distanceCounter;
+    [SerializeField] Rigidbody playerBody;
     Vector3 startPosition;
-    Rigidbody playerBody;
+    
     int score = 0;
     private void Awake()
     {
         startPosition = transform.position;
         startPosition.z = 0;
-        playerBody = GetComponent<Rigidbody>();
+    }
+
+    private void OnBecameInvisible()
+    {
+        StartCoroutine(GameOverSequence());
     }
 
     private void Update()
@@ -28,11 +31,6 @@ public class GameStateTrigger : MonoBehaviour
         int speedMultiplier = Mathf.RoundToInt(playerBody.velocity.magnitude/velocityPerMultiplier);
         score += speedMultiplier;
         distanceCounter.text = score + " x" + speedMultiplier;
-        if(Mathf.Abs(startPosition.x - currentPosition.x) > killWidth 
-            || Mathf.Abs(startPosition.y - currentPosition.y) > killHeight)
-        {
-            StartCoroutine(GameOverSequence());
-        }
     }
 
     IEnumerator GameOverSequence()

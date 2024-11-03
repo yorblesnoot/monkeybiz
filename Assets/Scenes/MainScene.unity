@@ -6062,7 +6062,6 @@ GameObject:
   - component: {fileID: 915055826}
   - component: {fileID: 915055830}
   - component: {fileID: 915055831}
-  - component: {fileID: 915055832}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -6165,24 +6164,29 @@ MonoBehaviour:
   levelSize: 30
   dissolveField: _DissolveLevel
   dissolveDuration: 0.5
---- !u!114 &915055832
+--- !u!1 &974912646 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7455553121120989938, guid: 211f57ca835f1e74b9fc882ed98aca45,
+    type: 3}
+  m_PrefabInstance: {fileID: 7512989241911915698}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &974912649
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 915055825}
+  m_GameObject: {fileID: 974912646}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cbc3a52903e2d0d47be56a7e4fe34f4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   velocityPerMultiplier: 5
-  killHeight: 30
-  killWidth: 40
   fadeDuration: 1
   gameOver: {fileID: 2139764034}
   distanceCounter: {fileID: 1535506009}
+  playerBody: {fileID: 915055826}
 --- !u!1001 &1045480409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7585,6 +7589,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 8964950977537256308}
+    - targetCorrespondingSourceObject: {fileID: 7455553121120989938, guid: 211f57ca835f1e74b9fc882ed98aca45,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 974912649}
   m_SourcePrefab: {fileID: 100100000, guid: 211f57ca835f1e74b9fc882ed98aca45, type: 3}
 --- !u!4 &7512989241911915699 stripped
 Transform:
