@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6949333926972009355}
   - component: {fileID: 3678887996760471126}
   - component: {fileID: 5782434146027854919}
-  - component: {fileID: 8003531928786114377}
+  - component: {fileID: 8895980118503578796}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -106,7 +106,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8003531928786114377
+--- !u!114 &8895980118503578796
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
