@@ -28,6 +28,7 @@ public class GameStateTrigger : MonoBehaviour
 
     private void OnBecameInvisible()
     {
+        if (gameObject == null) return;
         StartCoroutine(GameOverSequence());
         offScreen = true;
     }
