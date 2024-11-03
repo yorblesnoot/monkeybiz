@@ -6608,6 +6608,7 @@ MonoBehaviour:
   controls:
   - {fileID: 548834520}
   - {fileID: 22604118}
+  - {fileID: 6368118075841030122}
 --- !u!82 &974912652
 AudioSource:
   m_ObjectHideFlags: 0
