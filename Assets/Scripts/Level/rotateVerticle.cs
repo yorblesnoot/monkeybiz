@@ -9,11 +9,11 @@ public class rotateVerticle : MonoBehaviour
     {
         
     }
-
-    int rotationsPerMinute = 10;
+    [SerializeField] int rotationsPerMinute = 10;
+    [SerializeField] int spinDirection = 1;
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, 6.0f * rotationsPerMinute * Time.deltaTime, 0);
+        transform.Rotate(0, 6.0f * spinDirection * rotationsPerMinute * Time.deltaTime, 0);
     }
 }

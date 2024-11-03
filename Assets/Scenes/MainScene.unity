@@ -6267,12 +6267,17 @@ MonoBehaviour:
   - {fileID: 8711120290628597134, guid: 0a673ebc8472af94395e4783de635b8d, type: 3}
   - {fileID: 6961581842303223839, guid: 6ea1ae6364995f54a8866c31d789a88b, type: 3}
   - {fileID: 6472572597482417506, guid: 755510d0fa056344ab6a7325d6a32380, type: 3}
+  - {fileID: 1142253284234032812, guid: 127380635becac84e88b7f579995122e, type: 3}
   - {fileID: 446971044462843295, guid: ec6c495f2d110bb4db29028f0d4164e8, type: 3}
   - {fileID: 5875619311857198755, guid: 2fff2cdce437aad4eb8f3547147eef23, type: 3}
   - {fileID: 3744894254590363649, guid: 3ca73ab7c6968ad4bbf452dc5c4e8fce, type: 3}
+  - {fileID: 4197636361787181846, guid: 56cd888677096c24285648c810309e0e, type: 3}
+  - {fileID: 3903066736249421538, guid: 3fac72c82e0decb4aad922393eeb86cb, type: 3}
   levelNumber: 0
-  levelBuffer: 5
+  levelBuffer: 2
   levelSize: 30
+  dissolveField: _DissolveLevel
+  dissolveDuration: 0.5
 --- !u!114 &915055832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6285,6 +6290,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbc3a52903e2d0d47be56a7e4fe34f4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velocityPerMultiplier: 5
   killHeight: 30
   killWidth: 40
   fadeDuration: 1

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameStateTrigger : MonoBehaviour
 {
+    [SerializeField] float velocityPerMultiplier = 10;
     [SerializeField] float killHeight = 20;
     [SerializeField] float killWidth = 40;
     [SerializeField] float fadeDuration;
@@ -13,26 +14,22 @@ public class GameStateTrigger : MonoBehaviour
     [SerializeField] TMP_Text distanceCounter;
 
     [SerializeField] AudioClip[] collideSound;
-    
-    Vector3 startPosition;
-    float baseTravel;
     int randomAudio = 0;
     bool deathSound;
-
+    Vector3 startPosition;
     private void Awake()
     {
         startPosition = transform.position;
-        baseTravel = startPosition.z;
         startPosition.z = 0;
-        deathSound = false;
-        
+      
     }
 
     private void Update()
     {
         Vector3 currentPosition = transform.position;
-        float distanceTraveled = currentPosition.z - baseTravel;
-        distanceCounter.text = Mathf.RoundToInt(distanceTraveled) + " Lightyears Traveled";
+        int speedMultiplier = Mathf.RoundToInt(playerBody.velocity.magnitude/velocityPerMultiplier);
+        score += speedMultiplier;
+        distanceCounter.text = score + " x" + speedMultiplier;
         if(Mathf.Abs(startPosition.x - currentPosition.x) > killWidth 
             || Mathf.Abs(startPosition.y - currentPosition.y) > killHeight)
         {
