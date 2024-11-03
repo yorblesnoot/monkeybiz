@@ -50,7 +50,7 @@ public class GameStateTrigger : MonoBehaviour
         {
             distanceCounter.text = finalScore.ToString();
         }
-        else if (playerBody.velocity.magnitude == 0)
+        else if (playerBody.velocity.magnitude == 0) 
         {
             distanceCounter.text = "High Score: " + PlayerPrefs.GetInt("highScore");
         }
@@ -76,8 +76,10 @@ public class GameStateTrigger : MonoBehaviour
             gameOver.alpha = Mathf.Lerp(0, 1, timeElapsed / fadeDuration);
         }
         gameObject.GetComponent<SkinnedMeshRenderer>().enabled = false;
-        controls[0].GetComponent<Grapple>(). enabled = false;
+        controls[0].GetComponent<Grapple>().enabled = false;
         controls[1].GetComponent<Grapple>().enabled = false;
+        controls[0].GetComponentInChildren<LineRenderer>().enabled = false;
+        controls[1].GetComponentInChildren<LineRenderer>().enabled = false;
 
         yield return new WaitForSeconds(3);
         

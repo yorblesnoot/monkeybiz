@@ -45,6 +45,10 @@ public class CameraControl : MonoBehaviour
         {
             coloradj.hueShift.value = -180;
         }
+        if(transform.position == newPosition)
+        {
+            coloradj.hueShift.value = 0;
+        }
 
         transform.position = newPosition;
     }
