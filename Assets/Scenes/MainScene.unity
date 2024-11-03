@@ -5771,6 +5771,21 @@ PrefabInstance:
       propertyPath: playerBody
       value: 
       objectReference: {fileID: 915055826}
+    - target: {fileID: 5370015462032620238, guid: 38c0e4b4b6cd2be4691cffaf7dd3c42b,
+        type: 3}
+      propertyPath: fireSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370015462032620238, guid: 38c0e4b4b6cd2be4691cffaf7dd3c42b,
+        type: 3}
+      propertyPath: fireSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 48f5b102d2b48bf4e94682af9a4dfaca, type: 3}
+    - target: {fileID: 5370015462032620238, guid: 38c0e4b4b6cd2be4691cffaf7dd3c42b,
+        type: 3}
+      propertyPath: fireSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 817a17cd5f0df7b4690b4b21de9fae5c, type: 3}
     - target: {fileID: 8230275231559996518, guid: 38c0e4b4b6cd2be4691cffaf7dd3c42b,
         type: 3}
       propertyPath: m_Name
@@ -5966,6 +5981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handNumber: 1
   cursorSpeed: 4
+  cursorDeadZone: 10
 --- !u!114 &551924126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6056,6 +6072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handNumber: 0
   cursorSpeed: 4
+  cursorDeadZone: 10
 --- !u!114 &660640058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7664,6 +7681,21 @@ PrefabInstance:
       propertyPath: playerBody
       value: 
       objectReference: {fileID: 915055826}
+    - target: {fileID: 5370015462032620238, guid: 38c0e4b4b6cd2be4691cffaf7dd3c42b,
+        type: 3}
+      propertyPath: fireSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370015462032620238, guid: 38c0e4b4b6cd2be4691cffaf7dd3c42b,
+        type: 3}
+      propertyPath: fireSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 48f5b102d2b48bf4e94682af9a4dfaca, type: 3}
+    - target: {fileID: 5370015462032620238, guid: 38c0e4b4b6cd2be4691cffaf7dd3c42b,
+        type: 3}
+      propertyPath: fireSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 817a17cd5f0df7b4690b4b21de9fae5c, type: 3}
     - target: {fileID: 8230275231559996518, guid: 38c0e4b4b6cd2be4691cffaf7dd3c42b,
         type: 3}
       propertyPath: m_Name

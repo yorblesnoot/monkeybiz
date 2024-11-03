@@ -9,6 +9,7 @@ public class Grapple : MonoBehaviour
     [SerializeField] int power = 30;
     [SerializeField] Transform lineSource;
     [SerializeField] GameObject Cursor;
+    [SerializeField] AudioClip[] fireSounds;
 
     HandAnimator handAnimator;
     string handButton;
@@ -51,11 +52,17 @@ public class Grapple : MonoBehaviour
                 {
                     Reticle.transform.position = cursorHit.point;
                     Reticle.transform.SetParent(cursorHit.collider.transform, true);
+                    gameObject.GetComponent<AudioSource>().clip = fireSounds[0];
                     gameObject.GetComponent<AudioSource>().Play();
                 }
             }
 
-            if (!validGrapple) return;
+            if (!validGrapple)
+            {
+                gameObject.GetComponent<AudioSource>().clip = fireSounds[1];
+                gameObject.GetComponent<AudioSource>().Play();
+                return;
+            }
             playerBody.isKinematic = false;
             playerBody.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotation ;
 
@@ -66,8 +73,6 @@ public class Grapple : MonoBehaviour
 
             playerBody.AddForce(pullDirection * power, ForceMode.Impulse);
             handAnimator.AnimateHandTowardsPosition(pullPoint, true);
-
-            // audio
             
         }
         else
