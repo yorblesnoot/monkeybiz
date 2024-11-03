@@ -6298,6 +6298,11 @@ MonoBehaviour:
   fadeDuration: 1
   gameOver: {fileID: 2139764034}
   distanceCounter: {fileID: 1535506009}
+  playerBody: {fileID: 915055826}
+  collideSound:
+  - {fileID: 8300000, guid: 2ff85c99f748c0841b026e8ca17d9cd5, type: 3}
+  - {fileID: 8300000, guid: 1cb83e8cfc6d3704a9812adc23d77f66, type: 3}
+  - {fileID: 8300000, guid: 389f8ece63860404cb2027ec564d9178, type: 3}
 --- !u!1001 &1045480409
 PrefabInstance:
   m_ObjectHideFlags: 0
