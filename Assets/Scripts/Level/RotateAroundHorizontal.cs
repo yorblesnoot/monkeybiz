@@ -10,10 +10,12 @@ public class RotateAroundHorizontal : MonoBehaviour
     {
         
     }
-
+    [SerializeField] int spinDirection = 1;
+    //spinSpeed is number of degrees covered per second
+    [SerializeField] int spinSpeed = 90;
     // Update is called once per frame
     void Update()
     {
-        transform.RotateAround(target.transform.position, Vector3.up, 90 * Time.deltaTime);
+        transform.RotateAround(target.transform.position, Vector3.up, spinSpeed * spinDirection * Time.deltaTime);
     }
 }
