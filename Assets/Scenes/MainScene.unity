@@ -6235,7 +6235,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 915055825}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1213df0f6e46faa42b6a3f6c14b3f141, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6414,11 +6414,6 @@ MonoBehaviour:
   gameOver: {fileID: 2139764034}
   distanceCounter: {fileID: 1535506009}
   playerBody: {fileID: 915055826}
-  collideSound:
-  - {fileID: 8300000, guid: 2ff85c99f748c0841b026e8ca17d9cd5, type: 3}
-  - {fileID: 8300000, guid: 1cb83e8cfc6d3704a9812adc23d77f66, type: 3}
-  - {fileID: 8300000, guid: 389f8ece63860404cb2027ec564d9178, type: 3}
-  - {fileID: 8300000, guid: f4bafe9cbb38cef4984a5f747105c081, type: 3}
 --- !u!82 &974912652
 AudioSource:
   m_ObjectHideFlags: 0
