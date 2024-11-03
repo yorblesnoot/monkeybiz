@@ -40,7 +40,11 @@ public class CameraControl : MonoBehaviour
 
         chromabe.intensity.value = (newPosition - transform.position).magnitude*4;
         filmgrain.intensity.value = (newPosition - transform.position).magnitude*4;
-        coloradj.hueShift.value = (newPosition - transform.position).magnitude * 100 - 2;
+        coloradj.hueShift.value += (newPosition - transform.position).magnitude;
+        if (coloradj.hueShift.value == 180)
+        {
+            coloradj.hueShift.value = -180;
+        }
 
         transform.position = newPosition;
     }

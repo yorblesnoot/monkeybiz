@@ -40,7 +40,8 @@ public class GameStateTrigger : MonoBehaviour
     private void Update()
     {
         Vector3 currentPosition = transform.position;
-        int speedMultiplier = Mathf.RoundToInt(playerBody.velocity.magnitude/velocityPerMultiplier);
+        int speedMultiplier = Mathf.RoundToInt(playerBody.velocity.z/velocityPerMultiplier);
+        speedMultiplier = Mathf.Clamp(speedMultiplier, 0, int.MaxValue);
         score += speedMultiplier;
 
         distanceCounter.text = score + " x" + speedMultiplier;
