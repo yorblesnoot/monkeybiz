@@ -1070,7 +1070,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hyper Space Monkey
+  m_text: Hyper Light Monkey
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0d0a1bea58185eb44a527c340d476188, type: 2}
   m_sharedMaterial: {fileID: 9133107382122040789, guid: 0d0a1bea58185eb44a527c340d476188,
