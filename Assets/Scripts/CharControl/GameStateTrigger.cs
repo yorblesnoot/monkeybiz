@@ -88,7 +88,7 @@ public class GameStateTrigger : MonoBehaviour
         {
             PlayerPrefs.SetInt("highScore", finalScore);
         }
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     private void SpawnGibs(Vector3 position)
