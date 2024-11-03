@@ -6,20 +6,14 @@ public class cursorScript : MonoBehaviour
 {
     public int handNumber = 0;
     [SerializeField] int cursorSpeed = 6;
+    [SerializeField] int cursorDeadZone = 10;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void FixedUpdate()
     {
 
         if (gameObject.name == "cursorPlayer1")
         {
-            Player1();
+            ControlCursor();
         }
         else if (gameObject.name == "cursorPlayer2")
         {
@@ -29,7 +23,7 @@ public class cursorScript : MonoBehaviour
         ClampToWindow();
     }
 
-    void Player1()
+    void ControlCursor()
     { 
         transform.Translate(Input.GetAxis("Horizontal") * cursorSpeed, Input.GetAxis("Vertical") * cursorSpeed, 0);
     }
@@ -41,21 +35,21 @@ public class cursorScript : MonoBehaviour
 
     void ClampToWindow()
     {
-        if (transform.position.x < 0)
+        if (transform.position.x < cursorDeadZone)
         {
-            transform.Translate(2, 0, 0);
+            transform.Translate(cursorDeadZone, 0, 0);
         }
-        if (transform.position.x > Screen.width)
+        if (transform.position.x > Screen.width - cursorDeadZone)
         {
-            transform.Translate(-2, 0, 0);
+            transform.Translate(-cursorDeadZone, 0, 0);
         }
-        if (transform.position.y < 0)
+        if (transform.position.y < cursorDeadZone)
         {
-            transform.Translate(0, 2, 0);
+            transform.Translate(0, cursorDeadZone, 0);
         }
-        if (transform.position.y > Screen.height)
+        if (transform.position.y > Screen.height - cursorDeadZone)
         {
-            transform.Translate(0, -2, 0);
+            transform.Translate(0, -cursorDeadZone, 0);
         }
     }
 }

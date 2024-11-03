@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class SectionTrigger : MonoBehaviour
 {
+    [SerializeField] GameObject firstLevel;
     [SerializeField] List<GameObject> levels;
     public int levelNumber = 0;
     [SerializeField] int levelBuffer = 3;
@@ -15,7 +16,8 @@ public class SectionTrigger : MonoBehaviour
 
     private void Awake()
     {
-        for (int i = 0; i < levelBuffer; i++)
+        InstantiateBiome(firstLevel);
+        for (int i = 1; i < levelBuffer; i++)
         {
             InstantiateBiome();
         }
@@ -29,10 +31,15 @@ public class SectionTrigger : MonoBehaviour
         }
     }
 
-    private void InstantiateBiome()
+    private void InstantiateBiome(GameObject level = null)
     {
-        int levelSelector = UnityEngine.Random.Range(0, levels.Count);
-        GameObject spawned = Instantiate(levels[levelSelector], new Vector3(-15, 0, (levelNumber * levelSize)), Quaternion.identity);
+        if(level == null)
+        {
+            int levelSelector = UnityEngine.Random.Range(0, levels.Count);
+            level = levels[levelSelector];
+        }
+        
+        GameObject spawned = Instantiate(level, new Vector3(-15, 0, (levelNumber * levelSize)), Quaternion.identity);
         levelNumber++;
         Material[] materials = spawned.GetComponentsInChildren<Renderer>().Select(r => r.material).ToArray();
         if (materials == null) return;
