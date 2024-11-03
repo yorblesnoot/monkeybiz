@@ -6290,12 +6290,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbc3a52903e2d0d47be56a7e4fe34f4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocityPerMultiplier: 5
+  velocityPerMultiplier: 10
   killHeight: 30
   killWidth: 40
   fadeDuration: 1
   gameOver: {fileID: 2139764034}
   distanceCounter: {fileID: 1535506009}
+  playerBody: {fileID: 915055826}
   collideSound:
   - {fileID: 8300000, guid: 2ff85c99f748c0841b026e8ca17d9cd5, type: 3}
   - {fileID: 8300000, guid: 1cb83e8cfc6d3704a9812adc23d77f66, type: 3}
