@@ -16,6 +16,15 @@ public class cursorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetAxis("Sprint") != 0)
+        {
+            cursorSpeed = 4;
+        }
+        else
+        {
+            cursorSpeed = 2;
+        }
+
         if (gameObject.name == "cursorPlayer1")
         {
             Player1();
