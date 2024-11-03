@@ -6577,6 +6577,9 @@ MonoBehaviour:
   distanceCounter: {fileID: 1535506009}
   playerBody: {fileID: 915055826}
   gibs: {fileID: 4118930524976250020, guid: ee47cd116d961d14d9c1cb30e8163524, type: 3}
+  controls:
+  - {fileID: 548834520}
+  - {fileID: 22604118}
 --- !u!82 &974912652
 AudioSource:
   m_ObjectHideFlags: 0
