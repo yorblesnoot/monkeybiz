@@ -12,6 +12,7 @@ public class GameStateTrigger : MonoBehaviour
     [SerializeField] CanvasGroup gameOver;
     [SerializeField] TMP_Text distanceCounter;
     [SerializeField] Rigidbody playerBody;
+    [SerializeField] GameObject gibs;
     bool deathSound;
     bool offScreen = false;
     Vector3 startPosition;
@@ -50,6 +51,8 @@ public class GameStateTrigger : MonoBehaviour
             deathSound = true;
             gameObject.GetComponent<AudioSource>().Play();
         }
+
+        SpawnGibs();
         float timeElapsed = 0;
         while (timeElapsed < fadeDuration)
         {
@@ -58,5 +61,13 @@ public class GameStateTrigger : MonoBehaviour
         }
         yield return new WaitForSeconds(3);
         SceneManager.LoadScene(0);
+    }
+
+    private void SpawnGibs()
+    {
+        GameObject spawned = Instantiate(gibs, transform.position, Quaternion.identity);
+        Vector3 targetPosition = Camera.main.transform.position;
+        targetPosition.z = transform.position.z;
+        spawned.transform.LookAt(targetPosition);
     }
 }
