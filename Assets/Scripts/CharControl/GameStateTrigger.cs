@@ -12,10 +12,11 @@ public class GameStateTrigger : MonoBehaviour
     [SerializeField] float fadeDuration;
     [SerializeField] CanvasGroup gameOver;
     [SerializeField] TMP_Text distanceCounter;
-
+    [SerializeField] Rigidbody playerBody;
     [SerializeField] AudioClip[] collideSound;
     int randomAudio = 0;
     bool deathSound;
+    int score = 0;
     Vector3 startPosition;
     private void Awake()
     {
