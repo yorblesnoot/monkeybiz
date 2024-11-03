@@ -11,8 +11,13 @@ public class GameStateTrigger : MonoBehaviour
     [SerializeField] CanvasGroup gameOver;
     [SerializeField] TMP_Text distanceCounter;
     [SerializeField] Rigidbody playerBody;
-    Vector3 startPosition;
-    
+    [SerializeField] AudioClip[] collideSound;
+    int randomAudio = 0;
+    bool deathSound;
+    [SerializeField] Rigidbody playerBody;
+    [SerializeField] AudioClip[] collideSound;
+    int randomAudio = 0;
+    bool deathSound;
     int score = 0;
     private void Awake()
     {
@@ -31,10 +36,19 @@ public class GameStateTrigger : MonoBehaviour
         int speedMultiplier = Mathf.RoundToInt(playerBody.velocity.magnitude/velocityPerMultiplier);
         score += speedMultiplier;
         distanceCounter.text = score + " x" + speedMultiplier;
+            
+
     }
 
     IEnumerator GameOverSequence()
     {
+        if (!deathSound)
+        {
+            deathSound = true;
+            gameObject.GetComponent<AudioSource>().clip = collideSound[3];
+            gameObject.GetComponent<AudioSource>().pitch = 1;
+            gameObject.GetComponent<AudioSource>().Play();
+        }
         float timeElapsed = 0;
         while (timeElapsed < fadeDuration)
         {
