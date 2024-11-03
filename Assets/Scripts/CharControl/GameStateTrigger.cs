@@ -13,10 +13,13 @@ public class GameStateTrigger : MonoBehaviour
     [SerializeField] TMP_Text distanceCounter;
     [SerializeField] Rigidbody playerBody;
     [SerializeField] GameObject gibs;
+    [SerializeField] GameObject[] controls;
     bool deathSound;
     bool offScreen = false;
     Vector3 startPosition;
     int score = 0;
+    int finalScore = 0;
+
     private void Awake()
     {
         startPosition = transform.position;
@@ -39,12 +42,23 @@ public class GameStateTrigger : MonoBehaviour
         Vector3 currentPosition = transform.position;
         int speedMultiplier = Mathf.RoundToInt(playerBody.velocity.magnitude/velocityPerMultiplier);
         score += speedMultiplier;
+
         distanceCounter.text = score + " x" + speedMultiplier;
+
+        if (offScreen == true)
+        {
+            distanceCounter.text = finalScore.ToString();
+        }
+        else if (playerBody.velocity.magnitude == 0)
+        {
+            distanceCounter.text = "High Score: " + PlayerPrefs.GetInt("highScore");
+        }
     }
 
     IEnumerator GameOverSequence()
     {
         Vector3 gibPosition = transform.position;
+        finalScore = score;
         yield return new WaitForSeconds(deathDelay);
         if (!offScreen) yield break;
         if (!deathSound)
@@ -60,7 +74,16 @@ public class GameStateTrigger : MonoBehaviour
             timeElapsed += Time.deltaTime;
             gameOver.alpha = Mathf.Lerp(0, 1, timeElapsed / fadeDuration);
         }
+        gameObject.GetComponent<SkinnedMeshRenderer>().enabled = false;
+        controls[0].GetComponent<Grapple>(). enabled = false;
+        controls[1].GetComponent<Grapple>().enabled = false;
+
         yield return new WaitForSeconds(3);
+        
+        if(PlayerPrefs.GetInt("highScore") < finalScore)
+        {
+            PlayerPrefs.SetInt("highScore", finalScore);
+        }
         SceneManager.LoadScene(0);
     }
 
