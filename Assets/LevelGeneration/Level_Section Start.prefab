@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a66e20da1e7804f90e426ff7d8d9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 1784930290560952657}
   spinDirection: -1
   spinSpeed: 90
 --- !u!1 &1131846554827630137
@@ -239,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a66e20da1e7804f90e426ff7d8d9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 1784930290560952657}
   spinDirection: -1
   spinSpeed: 90
 --- !u!1 &1140951913051027383
@@ -360,7 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a66e20da1e7804f90e426ff7d8d9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 1784930290560952657}
   spinDirection: -1
   spinSpeed: 90
 --- !u!1 &1784930290560952657
@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 1819904078282523241}
   - component: {fileID: 4050308901915861937}
   m_Layer: 0
-  m_Name: Capsule (1)
+  m_Name: LeftCapsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -588,7 +588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a66e20da1e7804f90e426ff7d8d9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 8218982664969797289}
   spinDirection: 1
   spinSpeed: 90
 --- !u!1 &4598507924615009643
@@ -709,7 +709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a66e20da1e7804f90e426ff7d8d9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 8218982664969797289}
   spinDirection: 1
   spinSpeed: 90
 --- !u!1 &4772788834321337424
@@ -830,7 +830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a66e20da1e7804f90e426ff7d8d9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 8218982664969797289}
   spinDirection: 1
   spinSpeed: 90
 --- !u!1 &4792623246963217517
@@ -951,7 +951,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a66e20da1e7804f90e426ff7d8d9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 1784930290560952657}
   spinDirection: -1
   spinSpeed: 90
 --- !u!1 &6483898669337902899
@@ -1072,7 +1072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a66e20da1e7804f90e426ff7d8d9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 8218982664969797289}
   spinDirection: 1
   spinSpeed: 90
 --- !u!1 &8218982664969797289
@@ -1088,7 +1088,7 @@ GameObject:
   - component: {fileID: 977203860628362338}
   - component: {fileID: 5735534203963595167}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: RightCapsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
