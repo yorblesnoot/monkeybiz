@@ -5725,6 +5725,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5370015462032620238, guid: 38c0e4b4b6cd2be4691cffaf7dd3c42b,
         type: 3}
+      propertyPath: power
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370015462032620238, guid: 38c0e4b4b6cd2be4691cffaf7dd3c42b,
+        type: 3}
       propertyPath: Cursor
       value: 
       objectReference: {fileID: 551924123}
@@ -5936,8 +5941,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 032ce49023cd97b4b8703f433378295d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursorSpeed: 2
   handNumber: 1
+  cursorSpeed: 4
 --- !u!114 &551924126
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6026,8 +6031,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 032ce49023cd97b4b8703f433378295d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursorSpeed: 2
   handNumber: 0
+  cursorSpeed: 4
 --- !u!114 &660640058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7603,6 +7608,11 @@ PrefabInstance:
         type: 3}
       propertyPath: hand
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5370015462032620238, guid: 38c0e4b4b6cd2be4691cffaf7dd3c42b,
+        type: 3}
+      propertyPath: power
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5370015462032620238, guid: 38c0e4b4b6cd2be4691cffaf7dd3c42b,
         type: 3}

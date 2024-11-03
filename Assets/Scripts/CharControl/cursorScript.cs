@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class cursorScript : MonoBehaviour
 {
-    [SerializeField] int cursorSpeed = 2;
     public int handNumber = 0;
+    [SerializeField] int cursorSpeed = 6;
 
     // Start is called before the first frame update
     void Start()
@@ -14,16 +14,8 @@ public class cursorScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.GetAxis("Sprint") != 0)
-        {
-            cursorSpeed = 4;
-        }
-        else
-        {
-            cursorSpeed = 2;
-        }
 
         if (gameObject.name == "cursorPlayer1")
         {

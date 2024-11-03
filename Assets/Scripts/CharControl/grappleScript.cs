@@ -29,7 +29,7 @@ public class Grapple : MonoBehaviour
             handButton = "Fire2";
         }
     }
-    void LateUpdate()
+    void FixedUpdate()
     {
         Ray ray = Camera.main.ScreenPointToRay(Cursor.transform.position);
         if (Input.GetAxisRaw(handButton) == 0 && Physics.Raycast(ray, out RaycastHit cursorHit, 100))
