@@ -10,7 +10,7 @@ public class cursorScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -24,6 +24,8 @@ public class cursorScript : MonoBehaviour
         {
             Player2();
         }
+
+        ClampToWindow();
     }
 
     void Player1()
@@ -34,5 +36,25 @@ public class cursorScript : MonoBehaviour
     void Player2()
     {
         transform.Translate(Input.GetAxis("Horizontal2") * cursorSpeed, Input.GetAxis("Vertical2") * cursorSpeed, 0);
+    }
+
+    void ClampToWindow()
+    {
+        if (transform.position.x < 0)
+        {
+            transform.Translate(2, 0, 0);
+        }
+        if (transform.position.x > Screen.width)
+        {
+            transform.Translate(-2, 0, 0);
+        }
+        if (transform.position.y < 0)
+        {
+            transform.Translate(0, 2, 0);
+        }
+        if (transform.position.y > Screen.height)
+        {
+            transform.Translate(0, -2, 0);
+        }
     }
 }
