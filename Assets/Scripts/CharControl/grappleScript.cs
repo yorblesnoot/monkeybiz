@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Grapple : MonoBehaviour
 {
+    [SerializeField] float rayOriginGrace = 1f;
     [SerializeField] Rigidbody playerBody;
     [SerializeField] LineRenderer line;
     [SerializeField] GameObject Reticle;
@@ -29,17 +30,32 @@ public class Grapple : MonoBehaviour
             handButton = "Fire2";
         }
     }
+
+    bool validGrapple = false;
+
     void FixedUpdate()
     {
-        Ray ray = Camera.main.ScreenPointToRay(Cursor.transform.position);
-        if (Input.GetAxisRaw(handButton) == 0 && Physics.Raycast(ray, out RaycastHit cursorHit, 100))
-        {
-            Reticle.transform.position = cursorHit.point;
-            Reticle.transform.SetParent(cursorHit.collider.transform, true);
-        }
+        
 
         if (Input.GetAxisRaw(handButton) != 0)
         {
+            if (!isAxisDown)
+            {
+                
+                isAxisDown = true;
+
+                Ray ray = Camera.main.ScreenPointToRay(Cursor.transform.position);
+                ray.origin += ray.direction * rayOriginGrace;
+                validGrapple = Physics.Raycast(ray, out RaycastHit cursorHit, 100);
+                if (validGrapple)
+                {
+                    Reticle.transform.position = cursorHit.point;
+                    Reticle.transform.SetParent(cursorHit.collider.transform, true);
+                    gameObject.GetComponent<AudioSource>().Play();
+                }
+            }
+
+            if (!validGrapple) return;
             playerBody.isKinematic = false;
             playerBody.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotation ;
 
@@ -52,18 +68,13 @@ public class Grapple : MonoBehaviour
             handAnimator.AnimateHandTowardsPosition(pullPoint, true);
 
             // audio
-            if(!isAxisDown)
-            {
-                gameObject.GetComponent<AudioSource>().Play();
-                isAxisDown = true;
-            }
+            
         }
         else
         {
             handAnimator.ResetHandTarget();
             line.positionCount = 0;
             playerBody.constraints = RigidbodyConstraints.None;
-
             isAxisDown = false;
         }
     }
