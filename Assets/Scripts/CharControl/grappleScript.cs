@@ -41,7 +41,7 @@ public class Grapple : MonoBehaviour
         if (Input.GetAxisRaw(handButton) != 0)
         {
             playerBody.isKinematic = false;
-            playerBody.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
+            playerBody.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotation ;
 
             Vector3 pullPoint = Reticle.transform.position;
             pullDirection = (pullPoint - playerBody.transform.position).normalized;
