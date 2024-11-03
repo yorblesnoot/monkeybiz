@@ -5,7 +5,7 @@ public class Grapple : MonoBehaviour
     [SerializeField] Rigidbody playerBody;
     [SerializeField] LineRenderer line;
     [SerializeField] GameObject Reticle;
-    [SerializeField] int power = 1;
+    [SerializeField] int power = 30;
     [SerializeField] Transform lineSource;
     [SerializeField] GameObject Cursor;
 
@@ -41,6 +41,7 @@ public class Grapple : MonoBehaviour
         if (Input.GetAxisRaw(handButton) != 0)
         {
             playerBody.isKinematic = false;
+            playerBody.constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
 
             Vector3 pullPoint = Reticle.transform.position;
             pullDirection = (pullPoint - playerBody.transform.position).normalized;
@@ -61,6 +62,7 @@ public class Grapple : MonoBehaviour
         {
             handAnimator.ResetHandTarget();
             line.positionCount = 0;
+            playerBody.constraints = RigidbodyConstraints.None;
 
             isAxisDown = false;
         }
