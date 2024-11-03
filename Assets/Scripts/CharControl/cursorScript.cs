@@ -10,46 +10,23 @@ public class cursorScript : MonoBehaviour
 
     void FixedUpdate()
     {
-
         if (gameObject.name == "cursorPlayer1")
         {
-            ControlCursor();
+            ControlCursor("Horizontal", "Vertical");
         }
         else if (gameObject.name == "cursorPlayer2")
         {
-            Player2();
+            ControlCursor("Horizontal2", "Vertical2");
         }
-
-        ClampToWindow();
     }
 
-    void ControlCursor()
-    { 
-        transform.Translate(Input.GetAxis("Horizontal") * cursorSpeed, Input.GetAxis("Vertical") * cursorSpeed, 0);
-    }
-
-    void Player2()
+    void ControlCursor(string axisHorizontal, string axisVertical)
     {
-        transform.Translate(Input.GetAxis("Horizontal2") * cursorSpeed, Input.GetAxis("Vertical2") * cursorSpeed, 0);
-    }
-
-    void ClampToWindow()
-    {
-        if (transform.position.x < cursorDeadZone)
-        {
-            transform.Translate(cursorDeadZone, 0, 0);
-        }
-        if (transform.position.x > Screen.width - cursorDeadZone)
-        {
-            transform.Translate(-cursorDeadZone, 0, 0);
-        }
-        if (transform.position.y < cursorDeadZone)
-        {
-            transform.Translate(0, cursorDeadZone, 0);
-        }
-        if (transform.position.y > Screen.height - cursorDeadZone)
-        {
-            transform.Translate(0, -cursorDeadZone, 0);
-        }
+        Vector3 finalPosition = transform.position;
+        finalPosition.x += Input.GetAxis(axisHorizontal) * cursorSpeed;
+        finalPosition.y += Input.GetAxis(axisVertical) * cursorSpeed;
+        finalPosition.x = Mathf.Clamp(finalPosition.x, cursorDeadZone, Screen.width - cursorDeadZone);
+        finalPosition.y = Mathf.Clamp(finalPosition.y, cursorDeadZone, Screen.height - cursorDeadZone);
+        transform.position = finalPosition;
     }
 }
