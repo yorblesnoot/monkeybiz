@@ -12,8 +12,6 @@ public class GameStateTrigger : MonoBehaviour
     [SerializeField] CanvasGroup gameOver;
     [SerializeField] TMP_Text distanceCounter;
     [SerializeField] Rigidbody playerBody;
-    [SerializeField] AudioClip[] collideSound;
-    int randomAudio = 0;
     bool deathSound;
     bool offScreen = false;
     Vector3 startPosition;
@@ -50,8 +48,6 @@ public class GameStateTrigger : MonoBehaviour
         if (!deathSound)
         {
             deathSound = true;
-            gameObject.GetComponent<AudioSource>().clip = collideSound[2];
-            gameObject.GetComponent<AudioSource>().pitch = 1;
             gameObject.GetComponent<AudioSource>().Play();
         }
         float timeElapsed = 0;
