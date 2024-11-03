@@ -14,10 +14,7 @@ public class GameStateTrigger : MonoBehaviour
     [SerializeField] AudioClip[] collideSound;
     int randomAudio = 0;
     bool deathSound;
-    [SerializeField] Rigidbody playerBody;
-    [SerializeField] AudioClip[] collideSound;
-    int randomAudio = 0;
-    bool deathSound;
+    Vector3 startPosition;
     int score = 0;
     private void Awake()
     {
