@@ -44,6 +44,7 @@ public class GameStateTrigger : MonoBehaviour
 
     IEnumerator GameOverSequence()
     {
+        Vector3 gibPosition = transform.position;
         yield return new WaitForSeconds(deathDelay);
         if (!offScreen) yield break;
         if (!deathSound)
@@ -52,7 +53,7 @@ public class GameStateTrigger : MonoBehaviour
             gameObject.GetComponent<AudioSource>().Play();
         }
 
-        SpawnGibs();
+        SpawnGibs(gibPosition);
         float timeElapsed = 0;
         while (timeElapsed < fadeDuration)
         {
@@ -63,9 +64,9 @@ public class GameStateTrigger : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    private void SpawnGibs()
+    private void SpawnGibs(Vector3 position)
     {
-        GameObject spawned = Instantiate(gibs, transform.position, Quaternion.identity);
+        GameObject spawned = Instantiate(gibs, position, Quaternion.identity);
         Vector3 targetPosition = Camera.main.transform.position;
         targetPosition.z = transform.position.z;
         spawned.transform.LookAt(targetPosition);
